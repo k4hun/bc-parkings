@@ -1,3 +1,0 @@
-== README
-
-heroku: https://bootcamp6-k4hun.herokuapp.com/

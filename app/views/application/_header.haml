@@ -1,0 +1,13 @@
+.navbar.navbar-default
+  %ul.nav.navbar-nav
+    %li= link_to 'Parkings index', parkings_path
+    - if logged_in?
+      %li= link_to 'Cars index', cars_path
+      %li= link_to 'Place rents index', place_rents_path
+    - else
+      %li= link_to 'Log in', log_in_path
+      %li= link_to 'Register', register_path
+  - if logged_in?
+    %ul.nav.navbar-nav.navbar-right
+      %li.navbar-text= "Hello #{current_person.full_name}"
+      %li= link_to 'Log out', log_out_path, method: 'post'

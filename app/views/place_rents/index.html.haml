@@ -1,0 +1,17 @@
+%h1 Rent places index
+
+%table.table.table-striped#rents
+  %tr
+    %th Start date
+    %th End date
+    %th Price
+    %th Action
+  - @rents.each do |rent|
+    %tr
+      %td= rent.starts_at
+      %td= rent.ends_at
+      %td= rent.price
+      %td
+        = link_to("Show rent place", rent, class: 'btn btn-sm btn-primary')
+        = link_to("Show car", rent.car, class: 'btn btn-sm btn-primary')
+        = link_to("Show parking", rent.parking, class: 'btn btn-sm btn-primary')

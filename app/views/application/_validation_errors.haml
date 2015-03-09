@@ -1,0 +1,4 @@
+- if zone.errors.any?
+  - zone.errors.full_messages.each do |m|
+    .alert.alert-danger
+      = m

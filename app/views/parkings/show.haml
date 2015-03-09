@@ -1,0 +1,16 @@
+%h1 Show parking
+= link_to('Back', { action: 'index' }, class: 'btn btn-default')
+
+%table.table.table-striped
+  %tr
+    %th Kind
+    %th Hour price
+    %th Hour price
+    %th Address
+    %th Owner
+  %tr
+    %td= @parking.kind
+    %td= @parking.hour_price
+    %td= @parking.day_price
+    %td= "#{@parking.address.zip_code} #{@parking.address.city} #{@parking.address.street}"
+    %td= "---" unless @parking.owner

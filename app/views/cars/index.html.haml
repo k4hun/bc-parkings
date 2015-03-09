@@ -1,0 +1,17 @@
+%h1 Cars index
+
+= link_to('New car', { action: "new" }, class: 'btn btn-default')
+
+%table.table.table-striped
+  %tr
+    %th Model
+    %th Registration number
+    %th Actions
+  - @cars.each do |car|
+    %tr
+      %td= car.model
+      %td= car.registration_number
+      %td
+        = link_to("Show", car, class: 'btn btn-primary')
+        = link_to("Edit", edit_car_path(car), class: 'btn btn-warning')
+        = link_to("Remove", car, data: { confirm: 'Are you sure?' }, method: 'delete', class: 'btn btn-danger')

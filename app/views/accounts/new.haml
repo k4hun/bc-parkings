@@ -1,0 +1,25 @@
+%h1 Create new account
+.col-md-6
+  = form_for(@account) do |acc|
+    %table.table.table-striped
+      %tr
+        %th= acc.label(:email)
+        %td= acc.text_field(:email, class: 'form-control')
+      %tr
+        %th= acc.label(:password)
+        %td= acc.password_field(:password, class: 'form-control')
+      %tr
+        %th= acc.label(:password_confirmation)
+        %td= acc.password_field(:password_confirmation, class: 'form-control')
+      = acc.fields_for(:user) do |f|
+        %tr
+          %th= f.label(:first_name)
+          %td= f.text_field(:first_name, class: 'form-control')
+        %tr
+          %th= f.label(:last_name)
+          %td= f.text_field(:last_name, class: 'form-control')
+      %tr
+        %th
+        %td= acc.submit("Create", class: 'btn btn-primary')
+
+  = render partial: 'validation_errors', locals: { zone: @account }

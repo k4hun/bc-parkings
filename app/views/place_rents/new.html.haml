@@ -1,0 +1,17 @@
+%h1 Rent a place
+.col-md-6
+  = form_for([@parking, @rent]) do |f|
+    %table.table.table-striped
+      %tr
+        %th= f.label(:starts_at, 'Start date')
+        %td= f.datetime_local_field(:starts_at)
+      %tr
+        %th= f.label(:ends_at, 'End date')
+        %td= f.datetime_local_field(:ends_at)
+      %tr
+        %th= f.label(:car_id, 'Select car')
+        %td= f.select(:car_id, options_from_collection_for_select(current_person.cars, 'id', 'model'))
+    = f.submit('Send', class: 'btn btn-primary')
+    = link_to('Back', parkings_path, class: 'btn btn-warning')
+  %br
+  = render partial: 'validation_errors', locals: { zone: @rent }

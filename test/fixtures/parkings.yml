@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+cheap_one:
+  places: 5
+  kind: indoor
+  hour_price: 5.5
+  day_price: 20.2
+  address: poznan
+  owner: krzysztof
+
+expensive_one:
+  places: 10
+  kind: outdoor
+  hour_price: 7.3
+  day_price: 33.4
+  address: poznan
+  owner_id: janina

@@ -1,0 +1,14 @@
+%h1 Show car
+= link_to('Back', { action: 'index' }, class: 'btn btn-default')
+
+%table.table.table-striped
+  %tr
+    %th Owner
+    %th Model
+    %th Registration number
+    %th Image
+  %tr
+    %td= "#{@car.owner.first_name} #{@car.owner.last_name}"
+    %td= @car.model
+    %td= @car.registration_number
+    %td= image_tag @car.image.thumb('400x200#').url if @car.image_stored?

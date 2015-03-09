@@ -1,0 +1,29 @@
+.col-md-6
+  = form_for(@parking) do |f|
+    %table.table.table-striped
+      %tr
+        %th= f.label(:places)
+        %td= f.text_field(:places, class: 'form-control')
+      %tr
+        %th= f.label(:kind)
+        %td= f.select(:kind, Parking::KINDS, class: 'form-control')
+      %tr
+        %th= f.label(:hour_price)
+        %td= f.text_field(:hour_price, class: 'form-control')
+      %tr
+        %th= f.label(:day_price)
+        %td= f.text_field(:day_price, class: 'form-control')
+      = f.fields_for(:address) do |addr|
+        %tr
+          %th= addr.label(:city)
+          %td= addr.text_field(:city, class: 'form-control')
+        %tr
+          %th= addr.label(:street)
+          %td= addr.text_field(:street, class: 'form-control')
+        %tr
+          %th= addr.label(:zip_code)
+          %td= addr.text_field(:zip_code, class: 'form-control')
+    = f.submit('Send', class: 'btn btn-primary')
+    = link_to("Back", { action: "index" }, class: 'btn btn-warning')
+  %br
+  = render partial: 'validation_errors', locals: { zone: @parking }

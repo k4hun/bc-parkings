@@ -1,0 +1,2 @@
+module PlaceRentsHelper
+end

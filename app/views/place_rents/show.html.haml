@@ -1,0 +1,16 @@
+%h1 Show rent place
+= link_to('Back', { action: 'index' }, class: 'btn btn-default')
+
+%table.table.table-striped
+  %tr
+    %th Parking
+    %th Car
+    %th Start date
+    %th End date
+    %th Price
+  %tr
+    %td= @rent.parking.kind
+    %td= @rent.car.registration_number
+    %td= @rent.starts_at
+    %td= @rent.ends_at
+    %td= @rent.price

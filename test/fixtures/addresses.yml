@@ -1,0 +1,6 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+poznan:
+  city: Poznan
+  street: Wroclawska
+  zip_code: 11-222

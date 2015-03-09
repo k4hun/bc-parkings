@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+first_place:
+  parking: cheap_one
+  car: toyota
+  starts_at: 2015-01-25 12:55:57
+  ends_at: 2015-01-30 12:55:57
+  price: 22.22
+
+second_place:
+  parking: expensive_one
+  car: opel
+  starts_at: 2015-01-25 12:55:57
+  ends_at: 2015-03-30 12:55:57
+  price: 33.33

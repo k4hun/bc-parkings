@@ -1,0 +1,17 @@
+.col-md-6
+  = form_for(@car) do |f|
+    %table.table.table-striped
+      %tr
+        %th= f.label(:model)
+        %td= f.text_field(:model, class: 'form-control')
+      %tr
+        %th= f.label(:registration_number)
+        %td= f.text_field(:registration_number, class: 'form-control')
+      %tr
+        %th= f.label(:image)
+        %td= f.file_field(:image, class: 'form-control')
+    = f.submit('Send', class: 'btn btn-primary')
+    = link_to("Back", { action: "index" }, class: 'btn btn-warning')
+  %br
+  = render partial: 'validation_errors', locals: { zone: @car }
+

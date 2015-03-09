@@ -1,0 +1,52 @@
+%h1 Parkings index
+= link_to('New parking', { action: "new" }, class: 'btn btn-lg btn-default')
+%table.table.table-striped
+  %tr
+    %th City
+    %th Places
+    %th Owner
+    %th Hour price
+    %th Day price
+    %th Actions
+  - @parkings.each do |parking|
+    %tr
+      %td= parking.address.city
+      %td= parking.places
+      %td= parking.owner.full_name if parking.owner
+      %td= parking.hour_price
+      %td= parking.day_price
+      %td
+        = link_to("Show", parking, class: 'btn btn-sm btn-primary')
+        = link_to("Edit", edit_parking_path(parking), class: 'btn btn-sm btn-warning')
+        = link_to("Remove", parking, method: 'delete', data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger')
+        = link_to("Rent a place", new_parking_place_rent_path(parking.id), class: 'btn btn-sm btn-info')
+
+= will_paginate @parkings
+%hr
+.col-md-6
+  = form_tag(parkings_path, method: 'get') do
+    %table.table.table-striped
+      %tr
+        %td
+        %th
+          = label_tag(:is_public, 'Public')
+          = check_box_tag(:is_public, nil, checked = params[:is_public].present?, class: 'checkbox')
+        %th
+          = label_tag(:is_private, 'Private')
+          = check_box_tag(:is_private, nil, checked = params[:is_private].present?, class: 'checkbox')
+      %tr
+        %th= label_tag(:day_price_range)
+        %td= text_field_tag(:min_day_price, params[:min_day_price], class: 'form-control')
+        %td= text_field_tag(:max_day_price, params[:max_day_price], class: 'form-control')
+      %tr
+        %th= label_tag(:hour_price_range)
+        %td= text_field_tag(:min_hour_price, params[:min_hour_price], class: 'form-control')
+        %td= text_field_tag(:max_hour_price, params[:max_hour_price], class: 'form-control')
+      %tr
+        %th= label_tag(:city)
+        %td= text_field_tag(:city, params[:city], class: 'form-control')
+        %td
+      %tr
+        %th
+        %td= submit_tag('Search', class: 'btn btn-sm btn-primary')
+        %td

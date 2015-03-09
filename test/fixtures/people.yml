@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+krzysztof:
+  first_name: Krzysztof
+  last_name: Kowalski
+
+janina:
+  first_name: Janina
+  last_name: Nowak

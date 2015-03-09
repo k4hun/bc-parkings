@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+opel:
+  registration_number: ASD112233
+  model: Model1
+  owner: krzysztof
+
+toyota:
+  registration_number: ZXC324332
+  model: Model2
+  owner: krzysztof
+
+ford:
+  registration_number: QWEEWQ
+  model: New_model
+  owner: janina
